@@ -5,28 +5,51 @@ import java.math.BigInteger;
 public class Main {
     public static void main(String[] args) {
         String stringData = "Программное обеспечение MediaWiki используется десятками тысяч веб-сайтов";
+
         System.out.println(getTwoStringsWithOddEvenChars(stringData));
+
         System.out.println(getUpperCaseLoweCaseRatio(stringData));
+
         System.out.println(getStringWithoutDuplicateChars(stringData));
+
         System.out.println(getCharCount(stringData, 'л'));
+
         System.out.println(getReversString(stringData));
+
         System.out.println(getStringWithInsertString(stringData, "@@", 5));
+
         System.out.println(getStringWithoutSubString(stringData, "ва"));
+
         System.out.println(getSubString(stringData, 0, 2));
+
         System.out.println(getStringLength(stringData));
+
         System.out.println(getSubStringQuantity(stringData, "ва"));
+
         System.out.println(getStringWithReversedWordOrder(stringData));
+
         System.out.println(getStringWithReplacedSpaces(stringData));
+
         System.out.println(getStringReplacedLettersInLongestWord(stringData, "и", "@"));
+
         System.out.println(getShortestWordLength(stringData));
+
         System.out.println(getWordQuantity(stringData));
+
         System.out.println(getStringWithSwappedWords(stringData, 0, 1));
+
         System.out.println(getStringWithoutLastWord(stringData));
+
         System.out.println(addSpacesToString(stringData, 10, 0));
+
         System.out.println(isPalindrome("qweewq"));
+
         System.out.println(getStringWithReplacedSubString(stringData, "обеспечение", "123qwe"));
+
         System.out.println(getSumOfLargeNumbers("10000000000111000000005", "20000000000011100000001"));
+
         System.out.println(deleteWordsFromString(stringData, 11));
+
         System.out.println(removeExtraSpaces(stringData));
     }
 
