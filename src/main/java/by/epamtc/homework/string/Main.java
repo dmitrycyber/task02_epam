@@ -3,57 +3,60 @@ package by.epamtc.homework.string;
 import java.math.BigInteger;
 
 public class Main {
+    private static final String EXTRA_SPACES_REGEX = "\\s{2,}";
+    private static final String WORDS_REGEX = "[^А-яA-z\\-]+";
+
     public static void main(String[] args) {
         String stringData = "Программное обеспечение MediaWiki используется десятками тысяч веб-сайтов";
 
-        System.out.println(getTwoStringsWithOddEvenChars(stringData));
+        System.out.println(twoStringsWithOddEvenChars(stringData));
 
-        System.out.println(getUpperCaseLoweCaseRatio(stringData));
+        System.out.println(upperCaseLoweCaseRatio(stringData));
 
-        System.out.println(getStringWithoutDuplicateChars(stringData));
+        System.out.println(stringWithoutDuplicateChars(stringData));
 
-        System.out.println(getCharCount(stringData, 'л'));
+        System.out.println(charCount(stringData, 'л'));
 
-        System.out.println(getReversString(stringData));
+        System.out.println(reverseString(stringData));
 
-        System.out.println(getStringWithInsertString(stringData, "@@", 5));
+        System.out.println(stringWithInsertString(stringData, "@@", 5));
 
-        System.out.println(getStringWithoutSubString(stringData, "ва"));
+        System.out.println(stringWithoutSubString(stringData, "ва"));
 
-        System.out.println(getSubString(stringData, 0, 2));
+        System.out.println(subString(stringData, 0, 2));
 
-        System.out.println(getStringLength(stringData));
+        System.out.println(stringLength(stringData));
 
-        System.out.println(getSubStringQuantity(stringData, "ва"));
+        System.out.println(subStringQuantity(stringData, "ва"));
 
-        System.out.println(getStringWithReversedWordOrder(stringData));
+        System.out.println(stringWithReversedWordOrder(stringData));
 
-        System.out.println(getStringWithReplacedSpaces(stringData));
+        System.out.println(stringWithReplacedSpaces(stringData));
 
-        System.out.println(getStringReplacedLettersInLongestWord(stringData, "и", "@"));
+        System.out.println(stringReplacedLettersInLongestWord(stringData, "и", "@"));
 
-        System.out.println(getShortestWordLength(stringData));
+        System.out.println(shortestWordLength(stringData));
 
-        System.out.println(getWordQuantity(stringData));
+        System.out.println(wordQuantity(stringData));
 
-        System.out.println(getStringWithSwappedWords(stringData, 0, 1));
+        System.out.println(stringWithSwappedWords(stringData, 0, 1));
 
-        System.out.println(getStringWithoutLastWord(stringData));
+        System.out.println(stringWithoutLastWord(stringData));
 
         System.out.println(addSpacesToString(stringData, 10, 0));
 
         System.out.println(isPalindrome("qweewq"));
 
-        System.out.println(getStringWithReplacedSubString(stringData, "обеспечение", "123qwe"));
+        System.out.println(stringWithReplacedSubString(stringData, "обеспечение", "123qwe"));
 
-        System.out.println(getSumOfLargeNumbers("10000000000111000000005", "20000000000011100000001"));
+        System.out.println(sumOfLargeNumbers("10000000000111000000005", "20000000000011100000001"));
 
         System.out.println(deleteWordsFromString(stringData, 11));
 
         System.out.println(removeExtraSpaces(stringData));
     }
 
-    private static TwoStringModel getTwoStringsWithOddEvenChars(String stringData) {
+    private static TwoStringModel twoStringsWithOddEvenChars(String stringData) {
         char[] charArray = stringData.toCharArray();
 
         StringBuilder firstString = new StringBuilder();
@@ -71,7 +74,7 @@ public class Main {
         return new TwoStringModel(firstString.toString(), secondString.toString());
     }
 
-    private static double getUpperCaseLoweCaseRatio(String stringData) {
+    private static double upperCaseLoweCaseRatio(String stringData) {
         String upperCaseString = stringData.replaceAll("[a-zа-я]", "");
         String lowerCaseString = stringData.replaceAll("[A-ZА-Я]", "");
 
@@ -82,7 +85,7 @@ public class Main {
     }
 
 
-    private static String getStringWithoutDuplicateChars(String stringData) {
+    private static String stringWithoutDuplicateChars(String stringData) {
         StringBuilder stringWithoutDuplicates = new StringBuilder();
 
         for (int i = 0; i < stringData.length(); i++) {
@@ -94,45 +97,45 @@ public class Main {
         return stringWithoutDuplicates.toString();
     }
 
-    private static int getCharCount(String stringData, char symbol) {
+    private static int charCount(String stringData, char symbol) {
         String stringWithoutChar = stringData.replaceAll(String.valueOf(symbol), "");
 
         return stringData.length() - stringWithoutChar.length();
     }
 
 
-    private static String getReversString(String stringData) {
+    private static String reverseString(String stringData) {
         StringBuilder sb = new StringBuilder(stringData);
 
         return sb.reverse().toString();
     }
 
 
-    private static String getStringWithInsertString(String stringData, String appendString, int index) {
+    private static String stringWithInsertString(String stringData, String appendString, int index) {
         StringBuilder sb = new StringBuilder(stringData);
         return sb.insert(index, appendString).toString();
     }
 
-    private static String getStringWithoutSubString(String stringData, String subString) {
+    private static String stringWithoutSubString(String stringData, String subString) {
         return stringData.replaceAll(subString, "");
     }
 
 
-    private static String getSubString(String stringData, int firstIndex, int secondIndex) {
+    private static String subString(String stringData, int firstIndex, int secondIndex) {
         return stringData.substring(firstIndex, secondIndex);
     }
 
-    private static int getStringLength(String stringData) {
+    private static int stringLength(String stringData) {
         return stringData.length();
     }
 
-    private static int getSubStringQuantity(String stringData, String subString) {
+    private static int subStringQuantity(String stringData, String subString) {
         int lengthWithoutSubString = stringData.replaceAll(subString, "").length();
 
         return (stringData.length() - lengthWithoutSubString) / subString.length();
     }
 
-    private static String getStringWithReversedWordOrder(String stringData) {
+    private static String stringWithReversedWordOrder(String stringData) {
         String[] words = stringData.split(" ");
 
         StringBuilder stringWithReverserWordOrder = new StringBuilder();
@@ -144,12 +147,12 @@ public class Main {
         return stringWithReverserWordOrder.toString();
     }
 
-    private static String getStringWithReplacedSpaces(String stringData) {
+    private static String stringWithReplacedSpaces(String stringData) {
         return stringData.replaceAll(" ", "*");
     }
 
-    private static String getStringReplacedLettersInLongestWord(String stringData, String from, String to) {
-        String[] words = getWordsFromString(stringData);
+    private static String stringReplacedLettersInLongestWord(String stringData, String from, String to) {
+        String[] words = wordsFromString(stringData);
 
         String tempLongestWord = words[0];
 
@@ -177,8 +180,8 @@ public class Main {
     }
 
 
-    private static int getShortestWordLength(String stringData) {
-        String[] words = getWordsFromString(stringData);
+    private static int shortestWordLength(String stringData) {
+        String[] words = wordsFromString(stringData);
 
         String tempShortestWord = words[0];
 
@@ -190,13 +193,13 @@ public class Main {
         return tempShortestWord.length();
     }
 
-    private static int getWordQuantity(String stringData) {
-        return getWordsFromString(stringData).length;
+    private static int wordQuantity(String stringData) {
+        return wordsFromString(stringData).length;
     }
 
 
-    private static String getStringWithSwappedWords(String stringData, int firstWord, int secondWord) {
-        String[] words = getWordsFromString(stringData);
+    private static String stringWithSwappedWords(String stringData, int firstWord, int secondWord) {
+        String[] words = wordsFromString(stringData);
         StringBuilder stringWithReplacedWords = new StringBuilder();
 
         for (int i = 0; i < words.length; i++) {
@@ -213,8 +216,8 @@ public class Main {
         return stringWithReplacedWords.toString();
     }
 
-    private static String getStringWithoutLastWord(String stringData) {
-        String[] words = getWordsFromString(stringData);
+    private static String stringWithoutLastWord(String stringData) {
+        String[] words = wordsFromString(stringData);
 
         StringBuilder stringWithoutLastWord = new StringBuilder();
 
@@ -236,16 +239,16 @@ public class Main {
         return sb.toString().equals(sb.reverse().toString());
     }
 
-    private static String getStringWithReplacedSubString(String stringData, String from, String to) {
+    private static String stringWithReplacedSubString(String stringData, String from, String to) {
         return stringData.replaceAll(from, to);
     }
 
-    private static String getSumOfLargeNumbers(String firstNumber, String secondNumber) {
+    private static String sumOfLargeNumbers(String firstNumber, String secondNumber) {
         return new BigInteger(firstNumber).add(new BigInteger(secondNumber)).toString();
     }
 
     private static String deleteWordsFromString(String stringData, int wordLength) {
-        String[] words = getWordsFromString(stringData);
+        String[] words = wordsFromString(stringData);
 
         StringBuilder stringWithDeletedWords = new StringBuilder();
 
@@ -258,10 +261,10 @@ public class Main {
     }
 
     private static String removeExtraSpaces(String stringData) {
-        return stringData.trim().replaceAll("\\s{2,}", " ");
+        return stringData.trim().replaceAll(EXTRA_SPACES_REGEX, " ");
     }
 
-    private static String[] getWordsFromString(String stringData) {
-        return stringData.split("[^А-яA-z\\-]+");
+    private static String[] wordsFromString(String stringData) {
+        return stringData.split(WORDS_REGEX);
     }
 }
